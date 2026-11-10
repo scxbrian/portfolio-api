@@ -6,4 +6,5 @@ from pathlib import Path
 
 os.environ["WEBHOOK_SECRET"] = "test-secret"
 os.environ["PUBLISH_TOPIC"] = "portfolio"
+os.environ["ALLOWED_ORIGINS"] = "https://site.test"
 os.environ["DB_PATH"] = str(Path(tempfile.mkdtemp()) / "test.db")
