@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/
+tests/
+.git/
+.gitignore
+.pytest_cache/
+requirements-dev.txt
+requirements.in
+pytest.ini
+README.md
