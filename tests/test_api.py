@@ -185,3 +185,8 @@ def test_cors_allows_the_configured_site():
 def test_cors_does_not_allow_other_sites():
     response = client.get("/api/projects", headers={"Origin": "https://evil.test"})
     assert "access-control-allow-origin" not in response.headers
+# ---- docs are off unless switched on ----
+
+def test_docs_are_off_by_default():
+    for path in ("/docs", "/redoc", "/openapi.json"):
+        assert client.get(path).status_code == 404

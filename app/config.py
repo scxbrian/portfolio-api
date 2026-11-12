@@ -19,3 +19,4 @@ ALLOWED_ORIGINS = [
     ).split(",")
     if origin.strip()
 ]
+ENABLE_DOCS = os.getenv("ENABLE_DOCS", "false").lower() in ("1", "true", "yes")

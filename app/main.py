@@ -7,9 +7,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.concurrency import run_in_threadpool
 
 from . import db, github
-from .config import ALLOWED_ORIGINS, PUBLISH_TOPIC
+from .config import ALLOWED_ORIGINS, ENABLE_DOCS, PUBLISH_TOPIC
 
-app = FastAPI(title="Portfolio API")
+app = FastAPI(title="Portfolio API",
+    docs_url="/docs" if ENABLE_DOCS else None,
+    redoc_url="/redoc" if ENABLE_DOCS else None,
+    openapi_url="/openapi.json" if ENABLE_DOCS else None,)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
