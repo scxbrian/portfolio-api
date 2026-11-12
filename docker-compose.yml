@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    image: portfolio-api:local
+    container_name: portfolio-api
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - portfolio-data:/srv/data
+
+volumes:
+  portfolio-data:
+    external: true
